@@ -4,9 +4,9 @@
 tun:
   enable: true
   device: Meta
-  stack: mixed
+  stack: gvisor
   auto-route: true
-  auto-redirect: true
+  auto-redirect: false
   auto-detect-interface: true
   dns-hijack:
     - any:53
