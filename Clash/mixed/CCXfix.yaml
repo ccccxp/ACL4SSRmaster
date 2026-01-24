@@ -1,0 +1,31 @@
+#tun必须开启，否则将无法代理流量，如网页打开慢，电报卡连接中，
+#可以尝试更换堆栈，同一堆栈在不同设备上体验不同，自行尝试。
+#更换为非gvisor堆栈可能导致IPv6出现问题
+tun:
+  enable: true
+  device: Meta
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+  route-exclude-address: []
+  mtu: 1500
+  loopback-address:
+    - 10.7.0.1
+#exclude-package内填写的包名，网络流量不经过tun，相当于黑名单
+#默认添加MIUI镜像服务以及三星电话服务，避免系统功能不可用
+#如果想仅代理指定应用，请将exclude-package改为include-package
+#然后填上想要走代理的包名，不要忘了英文冒号和缩进。
+#目前分流规则已足够完善，白名单可能存在问题，不建议使用
+
+# 直接覆盖整个规则
+#rules:
+#  - DOMAIN,baidu.com,DIRECT
+# 将规则插入到原规则前面
+#rules:
+#  - DOMAIN,baidu.com,DIRECT
+# 在原规则后面追加规则
+#rules+:
+#  - DOMAIN,baidu.com,DIRECT
