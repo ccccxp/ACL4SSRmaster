@@ -1,20 +1,5 @@
 #------------------------------------------------------------------------------
-proxies:
-proxy-providers:
-  # 在下方的url填入订阅链接即可
-  myclash:
-    type: http
-    url: "xxx"
-    path: ./MyClashProvider.yaml
-    interval: 21600
-    exclude-filter: 自动|故障|流量|官网|套餐|机场|订阅|年|月|失联|频道|Traffic|Expire
-    health-check:
-      enable: true
-      url: https://www.gstatic.com/generate_204
-      interval: 900
-      timeout: 3000
-      lazy: true
-      expected-status: 204
+#
 #------------------------------------------------------------------------------
 
 # 注意！！！！ 如果无特殊需求，只需要填入订阅链接即可
@@ -84,7 +69,7 @@ sniffer:
 #更换为非gvisor堆栈可能导致IPv6出现问题
 tun:
   enable: true
-  device: Meta
+  device: Clash Mi
   stack: gvisor
   auto-route: true
   auto-redirect: false
@@ -92,6 +77,8 @@ tun:
   dns-hijack:
     - any:53
   route-exclude-address: []
+  loopback-address:
+    - 10.7.0.1
   mtu: 1500
 #exclude-package内填写的包名，网络流量不经过tun，相当于黑名单
 #默认添加MIUI镜像服务以及三星电话服务，避免系统功能不可用
