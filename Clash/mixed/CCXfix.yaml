@@ -3,7 +3,7 @@
 #更换为非gvisor堆栈可能导致IPv6出现问题
 tun:
   enable: true
-  device: Meta
+  device: Clash Mi
   stack: gvisor
   auto-route: true
   auto-redirect: false
