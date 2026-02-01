@@ -5,7 +5,7 @@
 tun:
   enable: true
   device: Clash Mi
-  stack: gvisor
+  stack: mixed
   auto-route: true
   auto-redirect: false
   auto-detect-interface: true
