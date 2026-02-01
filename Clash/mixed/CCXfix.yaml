@@ -10,9 +10,9 @@ tun:
   auto-redirect: false
   auto-detect-interface: true
   dns-hijack:
-    - 0.0.0.0:53
+    - any:53
   route-exclude-address: []
-  mtu: 1490
+  mtu: 1500
   loopback-address:
     - 10.7.0.1
 #exclude-package内填写的包名，网络流量不经过tun，相当于黑名单
