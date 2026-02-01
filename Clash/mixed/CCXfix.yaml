@@ -8,11 +8,11 @@ tun:
   stack: gvisor
   auto-route: true
   auto-redirect: false
-  auto-detect-interface: false
+  auto-detect-interface: true
   dns-hijack:
     - 0.0.0.0:53
   route-exclude-address: []
-  mtu: 4064
+  mtu: 1490
   loopback-address:
     - 10.7.0.1
 #exclude-package内填写的包名，网络流量不经过tun，相当于黑名单
