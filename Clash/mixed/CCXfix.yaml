@@ -20,7 +20,40 @@ tun:
 #如果想仅代理指定应用，请将exclude-package改为include-package
 #然后填上想要走代理的包名，不要忘了英文冒号和缩进。
 #目前分流规则已足够完善，白名单可能存在问题，不建议使用
-
+#添加dns设置来确保开启clash时访问国内网站卡顿
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false
+  ipv6-timeout: 300
+  respect-rules: false
+  enhanced-mode: fake-ip
+  use-hosts: false
+  use-system-hosts: false
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*"
+    - +.lan
+    - +.local
+    - time.*.com
+    - ntp.*.com
+    - +.market.xiaomi.com
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - +.qq.com
+    - +.tencent.com
+    - +.msftconnecttest.com
+    - +.msftncsi.com
+  default-nameserver:
+    - tls://223.5.5.5
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  direct-nameserver: []
+  nameserver-policy: {}
 # 直接覆盖整个规则
 #rules:
 #  - DOMAIN,baidu.com,DIRECT
